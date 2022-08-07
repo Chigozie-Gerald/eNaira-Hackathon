@@ -1,0 +1,8 @@
+**/node_modules
+public
+tmp
+dist
+.env
+todo.txt
+/src/public
+settings.json
