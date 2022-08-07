@@ -1,0 +1,53 @@
+FRONTEND E-NAIRA HACKATHON
+{
+"batchid": null,
+"birthcountry": "nigeria",
+"birthdate": "1988-05-11",
+"birthlga": "Miami",
+"birthstate": "Florida",
+"cardstatus": null,
+"centralID": "5813900",
+"documentno": null,
+"educationallevel": "tertiary",
+"email": "johndoe@email.com",
+"emplymentstatus": "unemployed",
+"firstname": "JOHN",
+"gender": "m",
+"heigth": "178",
+"maidenname": null,
+"maritalstatus": "single",
+"middlename": "BISMARK",
+"nin": "02730846093",
+"nok_address1": "\***\*",
+"nok_address2": "",
+"nok_firstname": "\*\***",
+"nok_lga": "\***\*",
+"nok_middlename": "\*\***",
+"nok_postalcode": "\***\*",
+"nok_state": "\*\***",
+"nok_surname": "\***\*",
+"nok_town": "\*\***",
+"nspokenlang": "IGBO",
+"ospokenlang": "\***\*",
+"othername": null,
+"pfirstname": "\*\***",
+"surname": "DOE",
+"telephoneno": "07012345678",
+"title": "mr",
+"trackingId": "qwertyQWERTY"
+}
+
+        {
+
+"channel_code": "APISNG",
+"customer_tier": "2",
+"reference": "NXG34567898FGHJJB8",
+"account_no": "0068626654",
+"director_bvn": "22334744900",
+"tin": "00000015-0001",
+"user_name": "accessbank",
+"city": "Lagos",
+"state": "Lagos",
+"wallet_category": "parent",
+"password": "Password10$$"
+}
