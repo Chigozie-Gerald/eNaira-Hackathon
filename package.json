@@ -1,11 +1,11 @@
 {
-  "name": "enaira-hackathon",
+  "name": "creator-pdf-node",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "server": "cd server && npm run dev",
-    "client": "cd enaira && npm start",
+    "client": "cd client && npm start",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "migrate": "git pull origin main && cd server && npm install && node_modules/.bin/sequelize db:migrate && cd ../client && npm install && npm run dev"
   },

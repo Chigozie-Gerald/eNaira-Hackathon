@@ -1,0 +1,42 @@
+.artboard {
+  position: relative;
+  overflow: hidden;
+}
+
+.artboard_inner {
+  padding: 1rem 6rem;
+  padding-bottom: 6rem;
+  overflow-y: auto;
+  height: 100%;
+}
+
+.artboard_container {
+  margin: 0 auto;
+  min-width: 30rem;
+  max-width: 50rem;
+  width: 100%;
+  position: relative;
+  display: block;
+}
+
+.artboard_container:before {
+  content: "";
+  padding-top: calc(297 / 210 * 100%);
+  display: block;
+}
+.artboard_container .inner {
+  padding: 1in;
+  background-color: var(--genColor);
+  box-shadow: var(--shadowDk);
+  height: 100%;
+  z-index: 1;
+  position: absolute;
+  display: flex;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.artboard_container .inner > element {
+  flex: 1;
+}

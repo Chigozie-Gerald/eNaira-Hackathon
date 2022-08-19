@@ -14,19 +14,19 @@ router.post("/product_create", async (req: Req, res: Res) => {
     name,
     price,
     description,
-    UserNIN,
+    UserBVN,
   }: {
     name: string;
     price: number;
     description?: string;
-    UserNIN: number;
+    UserBVN: string;
   } = req.body;
 
   const product = await Product.create({
     name,
     price,
     description,
-    UserNIN,
+    UserBVN,
   });
 
   const productJSON = JSON.stringify({ productId: product.id });
@@ -41,11 +41,11 @@ router.post("/preview", async (req: Req, res: Res, next: Next) => {
     const { productId } = req.params as unknown as { productId: number };
     const product = await Product.findByPk(productId);
     if (product) {
-      const NIN = product.UserNIN;
+      const BVN = product.UserBVN;
       const merchantInfo = (
-        await axios.post(url.NIN, {
-          searchParameter: NIN,
-          verificationType: "NIN-SEARCH",
+        await axios.post(url.BVN, {
+          channel_code: "APISNG",
+          bvn: BVN,
         })
       ).data;
       res.send({

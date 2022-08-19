@@ -1,0 +1,37 @@
+.sidebar {
+  width: 16rem;
+  position: relative;
+}
+
+.sidebar .pane {
+  overflow-y: auto;
+  height: inherit;
+  box-shadow: var(--shadow);
+  width: 100%;
+  background-color: var(--genColor);
+  padding: 0.25rem 0;
+}
+
+.sidebar .pane > div.cont {
+  padding: 0.75rem 0.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--borderColor);
+}
+
+div.sidebarFloat {
+  z-index: 1;
+  right: 100%;
+  padding-bottom: 1rem;
+  padding-left: 0;
+  padding-right: 0;
+  top: 0;
+  height: 100%;
+  width: 16rem;
+  position: absolute;
+}
+
+.sidebarFloat .inner {
+  background-color: var(--genColor);
+  max-height: 100%;
+  overflow-y: auto;
+}

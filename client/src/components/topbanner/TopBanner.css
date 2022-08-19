@@ -1,0 +1,6 @@
+.topbanner {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background-color: var(--genColor);
+  border-bottom: 1px solid var(--borderColor);
+}

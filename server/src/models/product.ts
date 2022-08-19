@@ -17,7 +17,7 @@ export interface ProductleanInterface {
   name: string;
   price: number;
   description?: string;
-  UserNIN: number;
+  UserBVN: number;
 }
 
 export class Product extends Model<
@@ -30,7 +30,7 @@ export class Product extends Model<
   declare name: string;
   declare description: CreationOptional<string>;
   declare price: number;
-  declare UserNIN: ForeignKey<User[`NIN`]>;
+  declare UserBVN: ForeignKey<User[`BVN`]>;
   declare createdAt: CreationOptional<Date>;
   declare updatedAt: CreationOptional<Date>;
   declare deletedAt: CreationOptional<Date>;

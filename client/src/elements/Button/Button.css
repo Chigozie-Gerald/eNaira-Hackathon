@@ -1,0 +1,24 @@
+.btn {
+  background-color: var(--primary);
+  border-radius: var(--radius);
+  cursor: pointer;
+  color: #fff;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.85rem;
+  width: fit-content;
+  max-width: 100%;
+  transition: background-color 200ms ease;
+  font-weight: 400;
+  border: none;
+}
+
+.btn.sm {
+  padding: 0.75rem 1.5rem;
+  font-size: 0.875rem;
+}
+.btn.md {
+  padding: 1rem 2.25rem;
+}
+.btn:hover {
+  opacity: 0.8;
+}

@@ -51,3 +51,34 @@ FRONTEND E-NAIRA HACKATHON
 "wallet_category": "parent",
 "password": "Password10$$"
 }
+
+BVN {
+"response_code": "00",
+"response_message": "Successful Request",
+"response_data": {
+"responseCode": "00",
+"BVN": "22152793496",
+"firstName": "AFOLABI ",
+"middleName": "RASHEED ",
+"lastName": "LADITI",
+"dateOfBirth": "07-Jan-1981",
+"registrationDate": "",
+"enrollmentBank": "044",
+"enrollmentBranch": "LIGALI AYORINDE",
+"email": "folaladi@yahoo.com",
+"gender": "Male",
+"levelOfAccount": "Level 2 - Medium Level Accounts",
+"lgaOfOrigin": "Ibadan North-West",
+"lgaOfResidence": "Lagos Mainland",
+"maritalStatus": "Married",
+"NIN": "93534170189",
+"nameOnCard": "AFOLABI RASHEED LADITI",
+"nationality": "Nigeria",
+"phoneNumber1": "08038087624",
+"phoneNumber2": "",
+"residentialAddress": "83, IWAYA ROAD, ONIKE, YABA, LAGOS STATE.",
+"stateOfOrigin": "Oyo State",
+"stateOfResidence": "Lagos State",
+"watchListed": "NO"
+}
+}

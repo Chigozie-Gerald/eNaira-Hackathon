@@ -4,21 +4,43 @@ import express, {
   NextFunction as Next,
 } from "express";
 import { ErrorHandler } from "../errorHandler/errorHandler";
-import { axios, headers, url } from "../https";
+import { sequelize, User } from "../helpers/modelDist";
+import { axios, body, headers, url } from "../https";
+import { User as UserType } from "../models/user";
+import { createCustomer } from "../services/customer";
+import { createMerchant } from "../services/merchant";
 const router = express.Router();
 
 router.post("/create", async (req: Req, res: Res, next: Next) => {
   try {
-    const response = (
-      await axios.post(url.NIN, {
-        searchParameter: "02730846093",
-        verificationType: "NIN-SEARCH",
-      })
-    ).data;
-    res.send(response);
+    const { BVN }: { BVN: string } = req.body;
+    const { userDetails, user, customer, merchant } =
+      await sequelize.transaction(async (transaction) => {
+        let user: UserType | null;
+        user = await User.findByPk(BVN);
+        const userDetails = (
+          await axios.post(url.BVN, {
+            channel_code: "APISNG",
+            bvn: BVN,
+          })
+        ).data.response_data as body;
+        if (!userDetails) {
+          throw new Error(`Something went wrong`);
+        }
+        console.log(`========111`);
+        if (!user) {
+          user = await User.create({ BVN }, { transaction });
+        }
+        const customer = await createCustomer(userDetails, user.BVN);
+        const merchant = await createMerchant(userDetails, user.BVN);
+
+        return { userDetails: userDetails, user, customer, merchant };
+      });
+
+    res.send({ userDetails, user, customer, merchant });
     console.log(`response create`);
   } catch (err: any) {
-    console.log(err.message, Object.keys(err.response), err.response);
+    console.log(err.message);
     next(new ErrorHandler(400, err.message));
   }
 });

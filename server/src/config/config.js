@@ -7,8 +7,8 @@ const allowedDomains = isProduction(process.env.NODE_ENV)
   : [process.env.LOCAL_CLIENT_URL, process.env.LOCAL_SERVER_URL];
 
 const development = {
-  username: "eNaira",
-  password: "eNaira1234",
+  username: "root",
+  password: "7890",
   database: "eNaira_development_local",
   host: "127.0.0.1",
   dialect: "mysql",

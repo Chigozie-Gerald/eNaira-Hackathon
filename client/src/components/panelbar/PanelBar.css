@@ -1,0 +1,5 @@
+.panelbar {
+  box-shadow: var(--shadow);
+  width: 4.5rem;
+  background-color: var(--genColor);
+}

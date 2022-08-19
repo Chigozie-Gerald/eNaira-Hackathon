@@ -14,7 +14,7 @@ import { Product } from "./product";
 import { user_product_association } from "../modelAssociationDefinitions/associations";
 
 export interface UserleanInterface {
-  NIN: number;
+  BVN: string;
 }
 
 export class User extends Model<
@@ -23,7 +23,7 @@ export class User extends Model<
 > {
   /*Helper method for defining associations*/
 
-  declare NIN: number;
+  declare BVN: string;
   declare createdAt: CreationOptional<Date>;
   declare updatedAt: CreationOptional<Date>;
   declare deletedAt: CreationOptional<Date>;
@@ -46,8 +46,8 @@ export class User extends Model<
 const UserTable = (sequelize: any, DataTypes: any) => {
   User.init(
     {
-      NIN: {
-        type: DataTypes.INTEGER,
+      BVN: {
+        type: DataTypes.STRING,
         primaryKey: true,
         allowNull: false,
       },

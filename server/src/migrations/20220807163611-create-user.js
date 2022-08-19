@@ -3,8 +3,8 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable("Users", {
-      NIN: {
-        type: Sequelize.DataTypes.INTEGER,
+      BVN: {
+        type: Sequelize.DataTypes.STRING,
         primaryKey: true,
         allowNull: false,
       },

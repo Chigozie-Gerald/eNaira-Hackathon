@@ -2,16 +2,16 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.addColumn("Products", "UserNIN", {
-      type: Sequelize.DataTypes.INTEGER,
+    return queryInterface.addColumn("Products", "UserBVN", {
+      type: Sequelize.DataTypes.STRING,
       references: {
         model: "Users",
-        key: "NIN",
+        key: "BVN",
       },
     });
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.removeColumn("Products", "UserNIN");
+    return queryInterface.removeColumn("Products", "UserBVN");
   },
 };
