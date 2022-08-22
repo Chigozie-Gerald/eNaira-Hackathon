@@ -1,6 +1,57 @@
 .topbanner {
   width: 100%;
-  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   background-color: var(--genColor);
   border-bottom: 1px solid var(--borderColor);
+}
+.topbanner > div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1.5rem;
+  --height: 3.5rem;
+}
+.topbanner > div:first-child {
+  border-bottom: 1px solid var(--borderColor);
+  height: var(--height);
+}
+.topbanner > div:nth-child(2) {
+  flex: 1;
+}
+
+.topbanner .widget_wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0 2rem;
+  /* padding: 1rem; */
+  height: 100%;
+}
+
+.topbanner .widget_wrapper .item_wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0 1rem;
+  height: 100%;
+}
+
+.topbanner .widget_wrapper .fileShowCase {
+  height: inherit;
+  width: 2.5rem;
+  border-radius: var(--radius);
+  background-color: #ddd;
+}
+
+.topbanner .widget_wrapper .item_wrapper > .item {
+  width: 3rem;
+  height: 1.75rem;
+  height: 100%;
+  position: relative;
+  border-radius: var(--radius);
+  background-color: var(--lightColor);
+  --minWidth: 20rem;
+}
+
+.banner_item {
 }

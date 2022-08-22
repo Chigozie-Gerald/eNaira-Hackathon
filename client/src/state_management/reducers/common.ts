@@ -1,4 +1,4 @@
-import { paperSizes } from "../../paperSizes";
+import { paperSizes, resize } from "../../paperSizes";
 import * as actionTypes from "../actionTypes";
 
 export type rect =
@@ -48,11 +48,13 @@ const initialState: {
   sideFloatCord: cord;
   boardPlacement: rect | null;
   paperSize: [number, number];
+  resize: resize;
 } = {
   boardFloatCord: undefined,
   sideFloatCord: undefined,
   boardPlacement: null,
   paperSize: paperSizes.A4,
+  resize: 100,
 };
 
 const reducer = (
@@ -82,6 +84,12 @@ const reducer = (
       return {
         ...state,
         paperSize: [...action.payload] as [number, number],
+      };
+    }
+    case actionTypes.SET_RESIZE: {
+      return {
+        ...state,
+        resize: action.payload,
       };
     }
     default: {

@@ -5,6 +5,7 @@ import { getPaperSizes, paperSizes } from "../../paperSizes";
 import { setPaperSize } from "../../state_management/actions";
 import { ReactComponent as CheckIcon } from "../../assets/check.svg";
 import "./fontDec.css";
+import { Floater } from "../fileDec/fileDec";
 
 const FontDec = ({
   paperSize,
@@ -51,12 +52,7 @@ const FontDec = ({
               }}
               className={`inner ${openExtra ? `focused` : ``}`}
             >
-              <span className="fontDec_type">
-                {getPaperSizes(paperSize) || `Custom`}
-              </span>
-              <span className="fontDec_size">
-                {paperSize[0]} x {paperSize[1]}
-              </span>
+              <span className="fontDec_type">Times New Roman</span>
             </div>
           </div>
         </div>
@@ -158,19 +154,3 @@ const mapDispatchToProps = (dispatch: any) => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(FontDec);
-
-const Floater = ({ y, children }: { y: number; children: ReactElement }) => {
-  const floatRef = useRef<HTMLDivElement>(null);
-
-  return (
-    <div
-      ref={floatRef}
-      style={{
-        paddingTop: y - 56 - 8,
-      }}
-      className="sidebarFloat"
-    >
-      <div className="floatWrap inner scrollWheelSm">{children}</div>
-    </div>
-  );
-};

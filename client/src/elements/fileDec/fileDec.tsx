@@ -159,14 +159,17 @@ const mapDispatchToProps = (dispatch: any) => ({
 
 export default connect(mapStateToProps, mapDispatchToProps)(FileDec);
 
-const Floater = ({ y, children }: { y: number; children: ReactElement }) => {
-  const floatRef = useRef<HTMLDivElement>(null);
-
+export const Floater = ({
+  y,
+  children,
+}: {
+  y: number;
+  children: ReactElement;
+}) => {
   return (
     <div
-      ref={floatRef}
       style={{
-        paddingTop: y - 56 - 8,
+        paddingTop: `calc(${y}px - 8px)`,
       }}
       className="sidebarFloat"
     >

@@ -3,6 +3,9 @@
 }
 .pdf_node_app {
   color: rgb(74, 74, 74);
+  --expandColor: #727272;
+  --tiny: 0.75rem;
+  --small: 0.85rem;
   --radius: 0.35rem;
   --padding: 0.5rem;
   --primary: rgb(59, 59, 183);
@@ -14,11 +17,29 @@
     rgba(16, 16, 23, 0.1) 0px 0px 3px;
   --shadowDk2: rgba(67, 71, 85, 0.25) 0px 0px 0.15rem,
     rgba(90, 125, 188, 0.05) 0px 0.15rem 1em;
+  --shadowFloat: 0 2px 6px 2px rgb(60 64 67 / 15%);
   --bannerHeight: 3.5rem;
-  --genBackColor: #f2f2f2;
+  --bannerHeight: 6rem;
+  --genBackColor: #f8f9fa;
   --genColor: #fff;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
   background-color: var(--genBackColor);
+}
+
+.inner-item {
+  /* position: absolute; */
+  top: 0;
+  left: 0;
+  background-color: inherit;
+  border-radius: inherit;
+  width: 100%;
+  height: 100%;
+}
+
+.inner-item:hover + .float_wrapper {
+  display: flex;
 }
 
 .titleHead {
@@ -30,9 +51,8 @@
 }
 
 .floatWrap {
-  border: 1px solid rgb(213, 213, 213);
-  border-radius: 0.75rem;
-  box-shadow: var(--shadowDk2);
+  border-radius: var(--radius);
+  box-shadow: var(--shadowFloat);
 }
 
 .flex1 {
@@ -110,6 +130,7 @@ input[type="number"] {
 .pdf_node_body {
   display: flex;
   overflow-y: auto;
+  flex: 1;
   height: calc(100vh - var(--bannerHeight));
 }
 
@@ -123,7 +144,7 @@ input[type="number"] {
   padding: 0.2rem;
 }
 .scrollWheel::-webkit-scrollbar-track {
-  background-color: hsla(0, 0%, 89%, 0.4);
+  background-color: transparent;
   overflow: hidden;
 }
 .scrollWheel::-webkit-scrollbar-thumb {

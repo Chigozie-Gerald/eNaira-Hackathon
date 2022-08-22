@@ -30,10 +30,12 @@
 }
 
 .fontDec .size {
+  min-height: inherit;
   background-color: var(--genColor);
   position: absolute;
 }
 .fontDec .size .inner {
+  min-height: inherit;
   cursor: pointer;
   display: flex;
   align-items: center;

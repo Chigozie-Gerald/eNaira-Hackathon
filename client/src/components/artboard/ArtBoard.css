@@ -1,42 +1,84 @@
 .artboard {
   position: relative;
+  --containerVertPad: 1rem;
   overflow: hidden;
+}
+.artboard .rulers {
+  font-size: 0.65rem;
+  --borderCol: rgb(213, 213, 213);
+  position: absolute;
+  background-color: rgb(241, 241, 241);
+  top: 0;
+  left: 0;
+  --index: 9;
+}
+
+.artboard .rulers.horiz {
+  right: 0;
+  z-index: var(--index);
+  border-bottom: 1px solid var(--borderCol);
+  width: 100%;
+}
+
+.artboard .rulers.vert {
+  bottom: 0;
+  border-right: 1px solid var(--borderCol);
+  height: 100%;
+}
+
+.artboard .rulers > .roller {
+  height: 100%;
+  position: relative;
+}
+
+.artboard .rulers .inner {
+  height: 100%;
+  position: relative;
+  margin: 0 auto;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  background-color: #fff;
+}
+.artboard .rulers > .shadow {
+  z-index: var(--index);
+  transition: all 200ms ease;
+  position: absolute;
+}
+
+.artboard .rulers.vert > .shadow {
+  width: 2px;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.1), transparent);
+}
+.artboard .rulers.horiz > .shadow {
+  height: 2px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), transparent);
 }
 
 .artboard_inner {
-  padding: 1rem 6rem;
-  padding-bottom: 6rem;
+  position: relative;
+  margin-bottom: 6rem;
   overflow-y: auto;
   height: 100%;
 }
 
-.artboard_container {
+.artboard_inner .inner {
   margin: 0 auto;
-  min-width: 30rem;
-  max-width: 50rem;
-  width: 100%;
-  position: relative;
-  display: block;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.artboard_container:before {
-  content: "";
-  padding-top: calc(297 / 210 * 100%);
-  display: block;
-}
-.artboard_container .inner {
-  padding: 1in;
+.artboard_inner canvas {
+  position: relative;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+  object-fit: contain;
+  object-position: 50% 50%;
+  box-shadow: var(--shadowDk), rgba(0, 0, 0, 0.06) 1px 1px 1px,
+    rgba(0, 0, 0, 0.06) -1px -1px 1px;
   background-color: var(--genColor);
-  box-shadow: var(--shadowDk);
-  height: 100%;
-  z-index: 1;
-  position: absolute;
-  display: flex;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
 }
-.artboard_container .inner > element {
-  flex: 1;
+.artboard_inner canvas:last-child {
+  margin-bottom: 0;
 }

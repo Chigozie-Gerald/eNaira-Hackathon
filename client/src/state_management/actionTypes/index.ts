@@ -7,3 +7,4 @@ export const SET_REVIEW = "SET_REVIEW";
 export const CLEAR_REVIEW = "CLEAR_REVIEW";
 export const SET_BOARD_PLACEMENTS = "SET_BOARD_PLACEMENTS";
 export const SET_PAPER_SIZE = "SET_PAPER_SIZE";
+export const SET_RESIZE = "SET_RESIZE";

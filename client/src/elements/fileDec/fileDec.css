@@ -30,6 +30,7 @@
 }
 
 .fileDec .size {
+  min-height: inherit;
   background-color: var(--genColor);
   position: absolute;
 }

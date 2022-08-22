@@ -1,14 +1,14 @@
 .sidebar {
-  width: 16rem;
-  position: relative;
+  --sideBarWidth: 16rem;
+  width: var(--sideBarWidth);
+  background-color: var(--genColor);
+  box-shadow: var(--shadow);
 }
 
 .sidebar .pane {
   overflow-y: auto;
   height: inherit;
-  box-shadow: var(--shadow);
   width: 100%;
-  background-color: var(--genColor);
   padding: 0.25rem 0;
 }
 
@@ -20,7 +20,7 @@
 
 div.sidebarFloat {
   z-index: 1;
-  right: 100%;
+  right: var(--sideBarWidth);
   padding-bottom: 1rem;
   padding-left: 0;
   padding-right: 0;

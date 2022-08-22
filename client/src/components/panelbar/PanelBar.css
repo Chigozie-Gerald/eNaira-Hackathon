@@ -1,5 +1,18 @@
 .panelbar {
   box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem 0;
   width: 4.5rem;
+  width: 16rem;
+  z-index: 9;
+  padding: 1rem;
   background-color: var(--genColor);
+}
+
+.panelbar .item {
+  width: 100%;
+  height: 2.5rem;
+  border-radius: var(--radius);
+  background-color: #eee;
 }
