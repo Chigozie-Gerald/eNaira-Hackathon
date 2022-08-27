@@ -1,0 +1,154 @@
+.fontDec,
+.fontDec_list {
+  --sidePadding: 0.275rem;
+}
+
+.fontDec .size {
+  border-radius: var(--radius);
+  border: 1px solid var(--borderColor);
+}
+
+.fontDec > .title {
+  font-weight: 600;
+  font-size: 0.8rem;
+  padding-bottom: 0.5rem;
+  border: none;
+}
+
+.fontDec .size_container {
+  min-height: 2rem;
+  position: relative;
+}
+
+.fontDec .size_container > div {
+  width: 100%;
+}
+
+.fontDec .size .inner,
+.fontDec_list {
+  padding: var(--sidePadding);
+}
+
+.fontDec .size {
+  min-height: inherit;
+  background-color: var(--genColor);
+  position: absolute;
+}
+.fontDec .size .inner {
+  min-height: inherit;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--sidePadding);
+}
+.fontDec .size .inner.focused {
+  outline: 2px solid rgba(42, 42, 165, 0.415);
+  border-radius: var(--radius);
+}
+
+.fontDec_type {
+  font-size: 0.75rem;
+}
+.fontDec_size {
+  border-radius: var(--radius);
+  font-size: 0.65rem;
+  padding: var(--sidePadding) 0.5rem;
+  background-color: var(--lightColor);
+  background-color: #eee;
+  margin-left: 1rem;
+}
+
+.fontDec_list {
+  overflow-y: auto;
+  padding: 0.5rem 0.75rem;
+  padding-top: 1rem;
+}
+
+.default_list {
+  padding-bottom: calc(0.75rem - var(--sidePadding));
+  border-bottom: 1px solid var(--borderColor);
+}
+
+.fontDec_font_list_wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.35rem;
+  margin: var(--sidePadding) 0;
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+.fontDec_font_list_wrapper:hover {
+  background-color: var(--lightColor);
+}
+.fontDec_font_list_wrapper.selected:hover,
+.fontDec_font_list_wrapper.selected {
+  /* outline: 2px solid rgba(42, 42, 165, 0.415); */
+  background-color: rgba(42, 42, 165, 0.065);
+}
+
+.fontDec_font_list_wrapper > div:first-child {
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+.fontDec_font_list_wrapper > div:last-child {
+  font-size: 0.7rem;
+}
+
+.fontDec_custom_font_size {
+  margin-top: 0.75rem;
+  --padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.25rem;
+}
+
+.fontDec_custom_font_size .field_wrapper {
+  margin-bottom: 0.75rem;
+  display: flex;
+  gap: 0 var(--padding);
+}
+
+.fontDec_custom_font_size .field_wrapper > div {
+  background-color: var(--lightColor);
+  --size: 1.75rem;
+  height: var(--size);
+  border: 1px solid #ccc;
+  border-radius: var(--radius);
+  padding-right: 0.25rem;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+}
+
+.fontDec_custom_font_size .field_wrapper > .y > span,
+.fontDec_custom_font_size .field_wrapper > .x > span {
+  padding: 0 0.5rem;
+  font-weight: 500;
+  border-right: 1px solid var(--borderColor);
+}
+
+.fontDec_custom_font_size .field_wrapper > .y > input,
+.fontDec_custom_font_size .field_wrapper > .x > input {
+  width: 0;
+  font-size: 0.75rem;
+  padding: 0 0.25rem;
+  background-color: transparent;
+  border: none;
+}
+
+.fontDec_custom_font_size .field_wrapper > .fontDec_icon_wrapper {
+  width: var(--size);
+  box-shadow: var(--shadow);
+  background-color: var(--genColor);
+  padding: 0.4rem;
+  cursor: pointer;
+}
+.fontDec_custom_font_size
+  .field_wrapper
+  > .fontDec_icon_wrapper:hover
+  svg
+  path {
+  stroke: #228c3b;
+}

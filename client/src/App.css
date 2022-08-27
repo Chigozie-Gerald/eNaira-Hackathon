@@ -1,0 +1,267 @@
+@font-face {
+  font-family: "Nunito";
+  src: local("Nunito"),
+    url("./Nunito_Sans/NunitoSans-SemiBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Nunito_Lean";
+  src: local("Nunito_Lean"),
+    url("./Nunito_Sans/NunitoSans-Regular.ttf") format("truetype");
+}
+* {
+  box-sizing: border-box;
+  font-weight: 400;
+  font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+.regular_text > *,
+.regular_text {
+  font-family: "Nunito_Lean", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif !important;
+}
+.pdf_node_app {
+  --color: rgb(74, 74, 74);
+  color: rgb(74, 74, 74);
+  --expandColor: #727272;
+  --tiny: 0.75rem;
+  --small: 0.85rem;
+  --radius: 0.35rem;
+  --padding: 0.5rem;
+  --primary: rgb(61, 61, 126);
+  --ltePrimary: rgba(61, 61, 126, 0.05);
+  --lightColor: rgba(238, 238, 238, 0.447);
+  --outlineColor: rgba(42, 42, 165, 0.415);
+  --outline: 2px solid var(--outlineColor);
+  --borderColor: rgb(231, 231, 231);
+  --shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px,
+    rgba(17, 17, 26, 0.05) 0px 0px 3px;
+  --shadowDk: rgba(16, 16, 23, 0.1) 0px 0px 0px,
+    rgba(16, 16, 23, 0.1) 0px 0px 3px;
+  --shadowDk2: rgba(67, 71, 85, 0.25) 0px 0px 0.15rem,
+    rgba(90, 125, 188, 0.05) 0px 0.15rem 1em;
+  --shadowFloat: 0 2px 6px 2px rgb(60 64 67 / 15%);
+  --bannerHeight: 6rem;
+  --genBackColor: #f8f9fa;
+  --genColor: #fff;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--genBackColor);
+}
+
+.inner-item {
+  /* position: absolute; */
+  top: 0;
+  left: 0;
+  background-color: inherit;
+  border-radius: inherit;
+  width: 100%;
+  height: 100%;
+}
+
+.inner-item:hover + .float_wrapper {
+  display: flex;
+}
+
+.titleHead {
+  color: rgb(163, 163, 163);
+  color: rgb(103, 103, 103);
+  font-size: 0.75rem;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.floatWrap {
+  border-radius: var(--radius);
+  box-shadow: var(--shadowFloat);
+}
+
+.flex {
+  display: flex;
+}
+
+.flex1 {
+  flex: 1;
+}
+
+.noShow {
+  display: none;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.img_div_contain {
+  object-fit: contain;
+  height: 100%;
+  width: 100%;
+  border-radius: inherit;
+}
+.img_div_cover {
+  object-fit: cover;
+  height: 100%;
+  min-width: 100%;
+  width: 100%;
+  border-radius: inherit;
+}
+input:focus,
+input:hover,
+input {
+  display: flex;
+  font-family: "Nunito_Lean", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+
+  outline: none;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.clamp3 {
+  -webkit-box-orient: vertical;
+  display: -webkit-box !important;
+  overflow: hidden;
+  -webkit-line-clamp: 3;
+  margin-bottom: 1rem;
+  padding-bottom: 0 !important;
+}
+
+.top_banner {
+  height: var(--bannerHeight);
+}
+
+.pdf_node_body {
+  display: flex;
+  overflow-y: auto;
+  flex: 1;
+  height: calc(100vh - var(--bannerHeight));
+}
+
+.pdf_node_body > div {
+  height: inherit;
+}
+
+/*Scroller*/
+.scrollWheel::-webkit-scrollbar {
+  width: 1rem;
+  padding: 0.2rem;
+}
+.scrollWheel::-webkit-scrollbar-track {
+  background-color: transparent;
+  overflow: hidden;
+}
+.scrollWheel::-webkit-scrollbar-thumb {
+  background-color: rgb(200, 200, 200);
+  background-clip: padding-box;
+  min-height: 2rem;
+  max-height: 10rem;
+  border-radius: 0.5rem;
+  border: 0.25rem solid transparent;
+}
+.scrollWheel::-webkit-scrollbar-thumb:hover {
+  background-color: #aaa;
+}
+.scrollWheel::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+.scrollWheelSm::-webkit-scrollbar {
+  width: 0.5rem;
+  border-radius: inherit;
+  overflow: hidden;
+}
+.scrollWheelSm::-webkit-scrollbar-track {
+  background-color: transparent;
+  overflow: hidden;
+}
+.scrollWheelSm::-webkit-scrollbar-thumb {
+  background-color: rgb(200, 200, 200);
+  background-clip: padding-box;
+  min-height: 2rem;
+  max-height: 10rem;
+  border-radius: 0.125rem;
+  border-radius: 4px;
+  border: 0.125rem solid transparent;
+}
+.scrollWheelSm::-webkit-scrollbar-thumb:hover {
+  background-color: #aaa;
+}
+.scrollWheelSm::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* Cursors */
+.draw {
+  cursor: crosshair;
+}
+.move {
+  cursor: move;
+}
+.resize_column {
+  cursor: col-resize;
+}
+.resize_ver {
+  cursor: n-resize;
+}
+.resize_horiz {
+  cursor: w-resize;
+}
+.resize_top_right {
+  cursor: ne-resize;
+}
+.resize_top_left {
+  cursor: nw-resize;
+}
+.resize_row {
+  cursor: row-resize;
+}
+.resize_bottom_left {
+  cursor: sw-resize;
+}
+.resize_bottom_right {
+  cursor: se-resize;
+}
+.pointer {
+  cursor: pointer;
+}
+.text_normal {
+  cursor: text;
+}
+.text_vert {
+  cursor: vertical-text;
+}
+.wait {
+  cursor: wait;
+}
+.zoom_in {
+  cursor: zoom-in;
+}
+.zoom_out {
+  cursor: zoom-out;
+}

@@ -1,0 +1,119 @@
+.topbanner {
+  --topBannerPad: 1rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--genColor);
+  border-bottom: 1px solid var(--borderColor);
+}
+.topbanner > div {
+  width: 100%;
+  padding-right: 1.5rem;
+  display: flex;
+  align-items: center;
+  --height: 4rem;
+}
+.topbanner > div:first-child {
+  border-bottom: 1px solid var(--borderColor);
+  height: var(--height);
+}
+.topbanner > div:nth-child(2) {
+  flex: 1;
+  padding: 0;
+  position: relative;
+}
+.topBanner_quick_access {
+  border-right: 1px solid var(--borderColor);
+  padding-right: inherit;
+  padding: 0.25rem var(--topBannerPad);
+  display: flex;
+  font-size: 0.85rem;
+  align-items: center;
+  height: 100%;
+}
+
+.topbanner .widget_wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0 1rem;
+  padding: 0 var(--topBannerPad);
+
+  /* padding: 1rem; */
+  height: 100%;
+}
+.topbanner .widget_wrapper .item_wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 0;
+}
+
+.topbanner .widget_wrapper .item_wrapper > .inner {
+  display: flex;
+  align-items: center;
+  gap: 0 0.25rem;
+  flex-shrink: 1;
+  flex-grow: 0;
+}
+.topbanner .widget_wrapper .item_wrapper > .inner.top {
+  min-width: 0;
+  font-weight: 500;
+  flex: 1 1;
+}
+.topbanner .widget_wrapper .item_wrapper > .inner.top span.activated_showcase {
+  font-size: 0.8rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 0.75rem;
+  background-color: #eee;
+  box-shadow: var(--shadowDk);
+  font-weight: 500;
+  margin-left: 1rem;
+  border-radius: 3px;
+}
+
+.topbanner .widget_wrapper .item_wrapper > .inner.bottom {
+  flex: 1 1;
+}
+
+.topbanner .widget_wrapper .fileShowCase {
+  height: inherit;
+  padding: 0.5rem 0;
+}
+.topbanner .widget_wrapper .fileShowCase > div {
+  height: 100%;
+  width: 2rem;
+  border-radius: var(--radius);
+  background-color: var(--primary);
+}
+
+.topbanner .widget_wrapper .item_wrapper > .inner > .item {
+  height: 1.75rem;
+  padding: 0.125rem 0.35rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px;
+  --minWidth: 20rem;
+  cursor: pointer;
+}
+
+.topbanner .widget_wrapper .item_wrapper > .inner > .item.active {
+  color: var(--primary);
+  background-color: var(--ltePrimary);
+}
+
+.topbanner .widget_wrapper .item_wrapper > .inner > .item:hover {
+  background-color: var(--lightColor);
+}
+
+.banner_item {
+  padding: 1rem;
+  width: fit-content;
+  min-width: 20rem;
+  height: 30rem;
+}

@@ -1,0 +1,19 @@
+.float_wrapper {
+  box-shadow: var(--shadowFloat);
+  border-radius: var(--radius);
+  min-height: 30rem;
+  min-width: var(--minWidth);
+  position: absolute;
+  background-color: var(--genColor);
+  z-index: 9;
+  border-top-left-radius: 0;
+  display: none;
+}
+
+.float_wrapper:hover {
+  display: flex;
+}
+
+.float_wrapper > div {
+  padding: 1rem;
+}
