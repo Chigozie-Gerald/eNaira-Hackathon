@@ -1,8 +1,9 @@
 .sidebar {
-  --sideBarWidth: 16rem;
+  --sideBarWidth: 4.5rem;
   width: var(--sideBarWidth);
   background-color: var(--genColor);
   box-shadow: var(--shadow);
+  border-left: 1px solid var(--borderColor);
 }
 
 .sidebar .pane {

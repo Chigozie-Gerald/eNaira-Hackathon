@@ -31,7 +31,6 @@ export const size: { holder: string; value: resize }[] = [
 ];
 
 export const getResizeHolder = (data: resize): string => {
-  console.log(data, `resize`);
   const result = size.find((obj) => {
     return obj.value === data;
   });
@@ -45,3 +44,8 @@ export const getResizeHolder = (data: resize): string => {
 export const mmToPxRatio = 3.7795275591;
 
 export type resize = `full` | `fit` | number;
+export const rulerSize = 16;
+export const artboard_wrapper_side_padding = 16 * 6;
+export const artboard_wrapper_paddingTop = 16 * 1;
+export const artboard_wrapper_paddingLeft = 64;
+export const artboard_wrapper_paddingRight = 64;

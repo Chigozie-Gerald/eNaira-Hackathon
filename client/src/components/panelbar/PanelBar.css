@@ -1,18 +1,153 @@
 .panelbar {
+  --headerHeight: 2.5rem;
   box-shadow: var(--shadow);
   display: flex;
+  font-size: 0.85rem;
   flex-direction: column;
-  gap: 1.5rem 0;
   width: 4.5rem;
   width: 16rem;
   z-index: 9;
-  padding: 1rem;
+  border-right: 1px solid var(--borderColor);
   background-color: var(--genColor);
 }
 
-.panelbar .item {
+.panelbar svg path {
+  fill: var(--color);
+}
+
+.panelbar > div {
   width: 100%;
-  height: 2.5rem;
+}
+.panelbar .header {
+  display: flex;
+  color: var(--primary);
+  align-items: center;
+  font-weight: 500;
+  height: var(--headerHeight);
+  border-bottom: 1px solid var(--borderColor);
+}
+
+.panelbar .header .title_name {
+  display: flex;
+  align-items: center;
+}
+
+.panelbar .header > div {
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  padding-right: 0.75rem;
+  width: 100%;
+  height: 100%;
+}
+
+.panelbar .header > div .input_field_wrapper {
+  height: 100%;
+  width: 6rem;
+  align-items: flex-start;
+  position: relative;
+  --close_width: 0.6rem;
+  --close_pad: 0.35rem;
+  --input_right_pad: calc(2 * var(--close_pad) + var(--close_width));
+}
+
+.panelbar .header > div .input_field_wrapper .close_wrapper {
+  position: absolute;
+  height: 100%;
+  padding: 0 var(--close_pad);
+  right: 0rem;
+  cursor: default;
+}
+
+.panelbar .header > div .input_field_wrapper .close_wrapper .content {
+  width: var(--close_width);
+  height: var(--close_width);
+}
+
+.panelbar .header > div .input_field_wrapper .close_wrapper .content svg.hide {
+  pointer-events: none;
+  opacity: 0;
+}
+
+.panelbar .header > div .input_field_wrapper:hover .close_wrapper .content svg,
+.panelbar
+  .header
+  > div
+  .input_field_wrapper
+  .close_wrapper:hover
+  .content
+  svg.show {
+  pointer-events: all;
+  opacity: 1;
+}
+
+.panelbar .header > div .input_field_wrapper .close_wrapper .content {
+  width: var(--close_width);
+  height: var(--close_width);
+}
+
+.panelbar .header .input_field_icon_wrapper {
+  width: 1rem;
+  padding: 0.25rem 0;
+}
+
+.panelbar .header .input_field_icon_wrapper svg {
+  cursor: pointer;
+}
+
+.panelbar .header .input_field_icon_wrapper svg path {
+  fill: blue;
+  fill: var(--primary);
+}
+
+.panelbar .header > div input {
+  /* width: 0; */
+  min-width: 0;
+  border: 1px solid var(--borderColor);
+  padding: 0 0.5rem;
+  padding-right: var(--input_right_pad);
+  font-size: 0.75rem;
+  height: 100%;
   border-radius: var(--radius);
-  background-color: #eee;
+  flex-basis: 70%;
+  background-color: var(--lightColor);
+}
+
+.panelbar .header > div input:focus {
+  outline: var(--outline);
+}
+
+.panelbar .listContent {
+  height: calc(100% - var(--headerHeight));
+  overflow-y: auto;
+  overflow-y: overlay;
+}
+.panelbar .listContent .page {
+  cursor: default;
+}
+.panelbar .listContent .page:last-child {
+  margin-bottom: 1rem;
+}
+
+.panelbar .listContent .page > div {
+  padding: 0.75rem;
+  display: flex;
+  align-items: center;
+}
+
+.panelbar .listContent .page .header_title {
+  padding: 0.5rem 1.5rem;
+  font-size: 0.75rem;
+  --head_color: var(--color);
+  color: var(--head_color);
+  justify-content: space-between;
+  width: 100%;
+}
+.panelbar .listContent .page .header_title .expand_wrapper {
+  width: 0.85rem;
+  margin: 0 0.25rem;
+}
+
+.panelbar .listContent .page > .list {
+  height: 6rem;
+  border-bottom: 1px solid rgba(238, 238, 238, 0.5);
 }

@@ -5,10 +5,10 @@ import "./SideBar.css";
 const SideBar = () => {
   return (
     <div className="sidebar">
-      <div className="pane scrollWheel">
+      {/* <div className="pane scrollWheel">
         <FileDec />
         <FontDec />
-      </div>
+      </div> */}
     </div>
   );
 };

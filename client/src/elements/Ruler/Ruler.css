@@ -1,8 +1,3 @@
-.artboard {
-  position: relative;
-  --containerVertPad: 1rem;
-  overflow: hidden;
-}
 .artboard .rulers {
   font-size: 0.65rem;
   --borderCol: rgb(213, 213, 213);
@@ -88,19 +83,4 @@
 .artboard .rulers.horiz > .shadow {
   height: 2px;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), transparent);
-}
-
-.artboard_inner {
-  position: relative;
-  margin-bottom: 6rem;
-  overflow-y: auto;
-  height: 100%;
-}
-
-.artboard_inner .inner {
-  margin: 0 auto;
-  width: fit-content;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }

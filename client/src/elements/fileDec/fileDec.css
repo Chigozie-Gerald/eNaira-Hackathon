@@ -17,6 +17,7 @@
 
 .fileDec .size_container {
   min-height: 2rem;
+  height: fit-content;
   position: relative;
 }
 
@@ -32,7 +33,6 @@
 .fileDec .size {
   min-height: inherit;
   background-color: var(--genColor);
-  position: absolute;
 }
 .fileDec .size .inner {
   cursor: pointer;

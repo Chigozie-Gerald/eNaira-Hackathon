@@ -1,19 +1,27 @@
-import React, { useMemo, useState } from "react";
+import React, { useState } from "react";
 import { useEffect, useRef } from "react";
 import { connect } from "react-redux";
 import { stateType } from "../..";
 import FloatWidget from "../../elements/floatWidget/FloatWidget";
-import { mmToPxRatio, resize } from "../../paperSizes";
+import {
+  mmToPxRatio,
+  artboard_wrapper_side_padding,
+  artboard_wrapper_paddingLeft,
+  artboard_wrapper_paddingRight,
+  artboard_wrapper_paddingTop,
+  resize,
+  rulerSize,
+} from "../../paperSizes";
+import { ReactComponent as PinIcon } from "../../assets/pin.svg";
 import {
   setBoardFloatCord,
   setBoardPlacement,
 } from "../../state_management/actions";
 import { cord, rect } from "../../state_management/reducers/common";
 import "./ArtBoard.css";
-
-const rulerSize = 16;
-const padding = 16 * 6;
-const paddingTop = 16 * 1;
+import Canvas from "../../elements/Canvas/Canvas";
+import VertRule from "../../elements/Ruler/VertRule";
+import HorizRule from "../../elements/Ruler/HorizRule";
 
 const ArtBoard = ({
   setCoordinates,
@@ -38,6 +46,7 @@ const ArtBoard = ({
       const rect = boardRef.current?.getBoundingClientRect();
       setBoardPlacement(rect);
     };
+
     getRect();
     window.addEventListener("resize", getRect);
 
@@ -53,7 +62,6 @@ const ArtBoard = ({
       setWidth(artboardWidth());
     };
     handleDimensions();
-    draw();
     window.addEventListener("resize", handleDimensions);
     return () => {
       window.removeEventListener("resize", handleDimensions);
@@ -61,12 +69,18 @@ const ArtBoard = ({
   }, []);
 
   const artboardHeight = (): number | null => {
-    const height = boardRef.current?.getBoundingClientRect().height;
-    const topPad = window.getComputedStyle(boardRef.current!)?.paddingTop;
-    const bottomPad = window.getComputedStyle(boardRef.current!)?.paddingBottom;
-    if (height && topPad && bottomPad) {
-      const innerHeight = height - (parseInt(topPad) + parseInt(bottomPad));
-      return innerHeight;
+    if (boardRef.current) {
+      const height = boardRef.current?.getBoundingClientRect().height;
+      const topPad = window.getComputedStyle(boardRef.current!)?.paddingTop;
+      const bottomPad = window.getComputedStyle(
+        boardRef.current!
+      )?.paddingBottom;
+      if (height && topPad && bottomPad) {
+        const innerHeight = height - (parseInt(topPad) + parseInt(bottomPad));
+        return innerHeight;
+      } else {
+        return null;
+      }
     } else {
       return null;
     }
@@ -82,12 +96,16 @@ const ArtBoard = ({
   };
 
   const artboardWidth = (): number | null => {
-    const width = boardRef.current?.getBoundingClientRect().width;
-    const leftPad = window.getComputedStyle(boardRef.current!)?.paddingLeft;
-    const rightPad = window.getComputedStyle(boardRef.current!)?.paddingRight;
-    if (width && leftPad && rightPad) {
-      const innerWidth = width - (parseInt(leftPad) + parseInt(rightPad));
-      return innerWidth;
+    if (boardRef.current) {
+      const width = boardRef.current?.getBoundingClientRect().width;
+      const leftPad = window.getComputedStyle(boardRef.current!)?.paddingLeft;
+      const rightPad = window.getComputedStyle(boardRef.current!)?.paddingRight;
+      if (width && leftPad && rightPad) {
+        const innerWidth = width - (parseInt(leftPad) + parseInt(rightPad));
+        return innerWidth;
+      } else {
+        return null;
+      }
     } else {
       return null;
     }
@@ -127,17 +145,6 @@ const ArtBoard = ({
     };
   };
 
-  const draw = () => {
-    const Canvas = document.getElementById(
-      `canvas_pdf__0`
-    ) as HTMLCanvasElement | null;
-    const canvas = Canvas?.getContext("2d");
-    if (canvas) {
-      canvas.fillStyle = `#eee`;
-      canvas.fillRect(16, 16, getDimensions().Width - 32, 100);
-    }
-  };
-
   return (
     <div
       style={{
@@ -155,7 +162,7 @@ const ArtBoard = ({
       <div
         ref={boardRef}
         style={{
-          padding: `${paddingTop}px ${padding}px`,
+          padding: `${artboard_wrapper_paddingTop}px ${artboard_wrapper_side_padding}px`,
         }}
         onContextMenu={(e) => {
           const rect = (e.currentTarget as Element).getBoundingClientRect();
@@ -174,13 +181,12 @@ const ArtBoard = ({
             .fill(0)
             .map((num, n) => {
               return (
-                <React.Fragment key={n}>
-                  <canvas
-                    id={`canvas_pdf__${n}`}
-                    width={getDimensions().Width}
-                    height={getDimensions().Height}
-                  ></canvas>
-                </React.Fragment>
+                <Canvas
+                  key={n}
+                  id={`canvas_pdf__${n}`}
+                  width={getDimensions().Width}
+                  height={getDimensions().Height}
+                />
               );
             })}
         </div>
@@ -219,61 +225,13 @@ const Rulers = ({
 }) => {
   return (
     <>
-      <div
-        style={{
-          width: rulerSize,
-          paddingTop: rulerSize + paddingTop,
-        }}
-        className="rulers vert"
-      >
-        <div
-          style={{
-            left: rulerSize,
-            top: 0,
-            bottom: 0,
-            opacity: left > paddingTop ? 1 : 0,
-          }}
-          className="shadow"
-        ></div>
-        <div
-          style={{
-            top: top * -1,
-            height: totalScrollHeight,
-          }}
-          className="inner"
-        ></div>
-      </div>
-      <div
-        style={{
-          height: rulerSize,
-        }}
-        className="rulers horiz"
-      >
-        <div
-          style={{
-            top: rulerSize,
-            left: 0,
-            right: 0,
-            opacity: top > paddingTop ? 1 : 0,
-          }}
-          className="shadow"
-        ></div>
-
-        <div
-          style={{
-            padding: `0 ${padding + rulerSize}px`,
-          }}
-          className="roller"
-        >
-          <div
-            style={{
-              left: left * -1,
-              width: totalScrollWidth,
-            }}
-            className="inner"
-          ></div>
-        </div>
-      </div>
+      <VertRule totalScrollHeight={totalScrollHeight} left={left} top={top} />
+      <HorizRule
+        totalScrollHeight={totalScrollHeight}
+        totalScrollWidth={totalScrollWidth}
+        left={left}
+        top={top}
+      />
     </>
   );
 };

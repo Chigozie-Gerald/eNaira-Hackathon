@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import "./SizeSelector.css";
 import { ReactComponent as ExpandIcon } from "../../assets/triangle.svg";
+import { ReactComponent as ZoomInIcon } from "../../assets/zoom-in.svg";
+import { ReactComponent as ExpandDownIcon } from "../../assets/expand_down.svg";
 import SvgHolder from "../../UI/SvgHolder/SvgHolder";
 import { stateType } from "../..";
 import { getResizeHolder, resize, size } from "../../paperSizes";
@@ -31,20 +33,24 @@ const SizeSelector = ({
 
   return (
     <div ref={listRef} className="sizeSelector">
-      <div className={`inner ${showExtra ? `open` : ``}`}>
+      <div className="item">
         <div
           onClick={(e) => {
             setShowExtra(!showExtra);
           }}
-          className="item"
+          className="icon_wrap"
         >
-          {getResizeHolder(resize)}
+          <ZoomInIcon />
+          <ExpandDownIcon />
         </div>
+        {getResizeHolder(resize)}
+      </div>
+      <div className={`inner ${showExtra ? `open` : ``}`}>
         {showExtra && (
           <div className="item_wrapper scrollWheelSm">
             <div className="custom_wrapper">
               <div onMouseOver={(e) => {}} className="custom">
-                <div className="floatContainer"></div>
+                {/* <div className="floatContainer"></div> */}
                 <div className="custom_size">Custom</div>
                 <SvgHolder height={8} width={8}>
                   <ExpandIcon />

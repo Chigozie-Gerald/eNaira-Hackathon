@@ -1,0 +1,14 @@
+.pdf_node_canvas {
+  position: relative;
+  margin: 0 auto;
+  margin-bottom: 1.5rem;
+  object-fit: contain;
+  object-position: 50% 50%;
+  box-shadow: var(--shadowDk), rgba(0, 0, 0, 0.06) 1px 1px 1px,
+    rgba(0, 0, 0, 0.06) -1px -1px 1px;
+  background-color: var(--genColor);
+  cursor: crosshair;
+}
+.pdf_node_canvas:last-child {
+  margin-bottom: 0;
+}

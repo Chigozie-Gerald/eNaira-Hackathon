@@ -1,26 +1,43 @@
 .sizeSelector {
   position: relative;
   --height: 1.75rem;
-  width: 10rem;
   height: var(--height);
+  min-width: 7.5rem;
 }
 .sizeSelector .inner {
-  z-index: 9;
+  z-index: 99;
   position: absolute;
-  top: 0;
+  top: var(--height);
   left: 0;
   width: 100%;
   font-size: var(--tiny);
-  border-radius: var(--radius);
-  box-shadow: var(--shadowDk);
+}
+.sizeSelector > .item {
+  font-size: var(--tiny);
+  min-height: var(--height);
+  align-items: center;
+  gap: 0.15rem;
+  display: flex;
   background-color: var(--genColor);
-  border: 1px solid var(--lightColor);
+  height: var(--height);
+  max-height: var(--height);
+  width: fit-content !important;
+  cursor: default;
 }
 
-.sizeSelector .inner:hover,
-.sizeSelector .inner.open {
-  box-shadow: var(--shadowDk2);
-  border: 1px solid var(--lightColor);
+.sizeSelector > .item .icon_wrap {
+  cursor: pointer;
+  padding: 0.5rem 0.25rem;
+  align-items: center;
+  gap: 0.35rem;
+  display: flex;
+  background-color: var(--genColor);
+  height: 100%;
+  border-radius: 2px;
+  transition: all 200ms ease;
+}
+.sizeSelector > .item .icon_wrap:hover {
+  background-color: var(--ltePrimary);
 }
 
 .sizeSelector .inner .item {
@@ -30,6 +47,11 @@
   padding: 0.5rem 0.5rem;
   align-items: center;
   display: flex;
+}
+
+.sizeSelector .inner > .item {
+  border: 1px solid black;
+  width: fit-content !important;
 }
 
 .sizeSelector .inner .item:hover,
@@ -45,10 +67,16 @@
 
 .sizeSelector .inner > .item_wrapper {
   max-height: 20rem;
-  width: 100%;
+  width: 12rem;
+  box-shadow: var(--shadowDk2);
+  box-shadow: var(--shadowFloat);
+  border-radius: var(--radius);
+  background-color: var(--genColor);
+  border: 1px solid var(--lightColor);
   overflow-y: auto;
   overflow-y: overlay;
   border-top: 1px solid var(--borderColor);
+  margin-top: 0.25rem;
   padding-bottom: 0.25rem;
 }
 .sizeSelector .inner > .item_wrapper .custom_wrapper {
@@ -56,6 +84,7 @@
   padding: 0;
   width: 100%;
   align-items: center;
+  position: relative;
   display: flex;
 }
 
@@ -84,7 +113,7 @@
   position: absolute;
   top: 0;
   border-radius: var(--radius);
-  right: calc(100%);
+  left: calc(100%);
   height: 10rem;
   width: 20rem;
   box-shadow: var(--shadowFloat);
@@ -97,6 +126,6 @@
   font-weight: 600;
 }
 
-.sizeSelector .inner > .item_wrapper .custom_wrapper:hover .floatContainer {
+.sizeSelector .inner > .item_wrapper .custom_wrapper .floatContainer {
   display: flex;
 }
